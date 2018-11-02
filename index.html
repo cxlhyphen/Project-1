@@ -26,26 +26,22 @@
 
     <!--Video js-->
     <script src="assets/javascript/video.js"></script>
-  =======
-
 
 
     <div class="container">
         <div class="row">
-                <div class="col-12 col-md-12">
-                        <div class="jumbotron jumbotron-fluid">
-                            <div class="container">
-                                <h1 class="display-4">Lyrdeo</h1>
-                                <p class="lead">Search lyrics and music videos.</p>
-                            </div>
-                        </div>
-                    </div>
             <div class="col-12 col-md-12">
                 <div class="jumbotron jumbotron-fluid">
                     <div class="container">
-                        <h1 class="display-4">Fluid jumbotron</h1>
-                        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its
-                            parent.</p>
+                        <h1 class="display-4">Lyrdeo</h1>
+                        <p class="lead">Search lyrics and music videos.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-12">
+                <div class="jumbotron jumbotron-fluid">
+                    <div class="container text-center">
+                        <iframe id="player" width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -56,8 +52,8 @@
             <div class="row">
                 <nav class="navbar navbar-light bg-light">
                     <form class="form-inline">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        <input id="input" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button id="submit" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
                 </nav>
 
@@ -75,6 +71,10 @@
 
 
     </div>
+
+
+    
+  
 </body>
 
 </html>
