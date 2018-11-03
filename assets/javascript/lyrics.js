@@ -48,3 +48,5 @@ function getLyrics() {
     });
 
 };
+
+getTrackId();
