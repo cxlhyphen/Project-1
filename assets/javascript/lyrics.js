@@ -6,16 +6,23 @@ var track = "";
 var trackId = "";
 
 //query IDs !site needs to be hosted before it will work
-var idQuery = "https://api.musixmatch.com/ws/1.1/matcher.track.get?apikey=bacbbf26f7275c4f5760229e42740c9e&format=json&q_track=shape%20of%20you";
+var idQuery = "https://api.musixmatch.com/ws/1.1/matcher.track.get?format=json&q_artist=bruno%20mars&q_track=finesse&apikey=bacbbf26f7275c4f5760229e42740c9e";
 
-var lyricQuery = "https://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey=bacbbf26f7275c4f5760229e42740c9e&format=json&track_id=129992602";
+var lyricQuery = "https://api.musixmatch.com/ws/1.1/track.lyrics.get?format=json&track_id=118611235&apikey=bacbbf26f7275c4f5760229e42740c9e";
 
 //function for AJAX request to find track id
 
 function getTrackId() {
     $.ajax({
+        crossDomain: true,
         url: idQuery,
-        method: "GET"
+        method: "GET",     
+        headers: {
+            "accept": "application/json",
+            "Access-Control-Allow-Origin":"*",
+            "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+            "Access-Control-Allow-Headers": "Origin, Content-Type"
+        }
     }).then(function (response) {
 
         console.log(response);
@@ -50,3 +57,5 @@ function getLyrics() {
 };
 
 getTrackId();
+
+getLyrics();
