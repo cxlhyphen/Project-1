@@ -54,10 +54,14 @@
                 <div class="col-12 col-md-12">
                     <form>
                         <div class="form-row align-items-center">
-                            <div class="col-10">
-                                <input class="form-control mr-sm-2" type="text" placeholder="Enter Artist or Song Here"
-                                    aria-label="Type" id="input">
+                            <div class="col-3">
+                                <input class="form-control mr-sm-2" type="text" placeholder="Enter Artist Here"
+                                    aria-label="Type" id="artist">
                             </div>
+                            <div class="col-7">
+                                    <input class="form-control mr-sm-2" type="text" placeholder="Enter Track Title Here"
+                                        aria-label="Type" id="track">
+                                </div>
                             <div class="col-2">
                                 <button class="btn bg-warning text-white text-center font-weight-bold btn-lg btn-block"
                                     type="submit" id="submit">Search</button>
@@ -70,8 +74,8 @@
         <br>
         <div class="container-fluid border border-warning rounded p-3 w-auto h-auto">
             <div class="row">
-                <div class="col-12 col-md-12">
-                    Lyric content goes here
+                <div class="col-12 col-md-12" id="lyrics">
+                    <strong>Lyrics:</strong>
                 </div>
             </div>
         </div>

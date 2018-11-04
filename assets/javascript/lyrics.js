@@ -1,6 +1,9 @@
+//on submit button click, grab variables, and run get track id function
+    //should we combine style sheets or create a new one to run the submit on click event??
+
 //Create variables to store artist + track input and track iD
-var artist = "bruno mars";
-var track = "finesse";
+var artist = "adele";
+var track = "hello";
 
 var trackId = "";
 
@@ -9,7 +12,6 @@ var idQuery = "https://api.musixmatch.com/ws/1.1/matcher.track.get?format=jsonp&
 
 
 //function for AJAX request to find track id
-
 function getTrackId() {
     $.ajax({
         crossDomain: true,
@@ -21,7 +23,7 @@ function getTrackId() {
         //grab track id number and store in trackID
         trackId = response.message.body.track.track_id;
 
-        console.log(trackId);
+        //console.log(trackId);
 
         getLyrics();
 
@@ -41,23 +43,25 @@ function getLyrics() {
         dataType: "jsonp"
     }).then(function (response) {
         
-        console.log(lyricQuery);
+        //console.log(lyricQuery);
+        //console.log(response);
 
-        console.log(response);
-
-        //grab lyrics body and store in a div
-        var lyrics = response.message.body.lyrics.lyrics_body;
+        //grab lyrics body, convert \n to breaks and store in a div
         var copyright = response.message.body.lyrics.lyrics_copyright;
-        console.log(lyrics);
-        console.log(copyright);
-        
-        var lyricsDiv = $("<div>");
-        lyricsDiv.text(JSON.stringify(lyrics));
 
-        //grab copywright data and store in a div
+        var lyrics = JSON.stringify(response.message.body.lyrics.lyrics_body);
+        lyrics = lyrics.replace(new RegExp("\\\\n", "g"), "<br />");
+        
+        //console.log(lyrics);
+        //console.log(copyright);
+
+        var lyricsDiv = $("<div>");
+        lyricsDiv.html(lyrics);
+        lyricsDiv.append("<br />");
+        lyricsDiv.append(copyright);
 
         //append to body
-    
+        $("#lyrics").append(lyricsDiv);
 
     });
 };
