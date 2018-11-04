@@ -10,17 +10,17 @@
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
- 
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
 </head>
 
 <body>
-        
+
 
 
 
@@ -33,7 +33,6 @@
 
     <div class="container">
         <div class="row">
-
             <div class="col-12 col-md-12">
                 <div class="jumbotron jumbotron-fluid bg-primary text-light text-center rounded">
                     <div class="container">
@@ -45,31 +44,23 @@
             <div class="col-12 col-md-12">
                 <div class="jumbotron jumbotron-fluid">
                     <div class="container">
-                        <h1 class="display-4">Place Holder for Youtube API</h1>
-                       <div id="player"></div>  
+                        <div id="player"></div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="container-fluid rounded">
             <div class="row">
-
-                <nav class="navbar navbar-light bg-light">
-                    <form class="form-inline">
-                        <input id="input" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button id="submit" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                </nav>
-
+                <div class="col-12 col-md-12">
                     <form>
                         <div class="form-row align-items-center">
                             <div class="col-10">
-                                <input id="input" class="form-control mr-sm-2" type="text" placeholder="Enter Artist or Song Here"
-                                    aria-label="Type">
+                                <input class="form-control mr-sm-2" type="text" placeholder="Enter Artist or Song Here"
+                                    aria-label="Type" id="input">
                             </div>
                             <div class="col-2">
-                                <button id="submit" class="btn bg-warning text-white text-center font-weight-bold btn-lg btn-block"
-                                    type="submit">Search</button>
+                                <button class="btn bg-warning text-white text-center font-weight-bold btn-lg btn-block"
+                                    type="submit" id="submit">Search</button>
                             </div>
                         </div>
                     </form>
@@ -86,8 +77,9 @@
         </div>
     </div>
 
-<!--Lyrics js-->
-<script src="assets/javascript/lyrics.js"></script>
-  
+    <!--Lyrics js-->
+    <script src="assets/javascript/lyrics.js"></script>
+
 </body>
+
 </html>
