@@ -6,6 +6,8 @@ var trackId = "";
 
 //function for AJAX request to find track id
 function getTrackId() {
+
+    $("#lyrics").empty();
     
     artist = $("#artist").val().trim();
     track = $("#track").val().trim();
@@ -67,8 +69,6 @@ function getLyrics() {
 
     });
 };
-
-getTrackId();
 
 $("#submit").on("click", function(event) {
 
