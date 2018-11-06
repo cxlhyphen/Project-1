@@ -1,18 +1,20 @@
-//on submit button click, grab variables, and run get track id function
-    //should we combine style sheets or create a new one to run the submit on click event??
-
 //Create variables to store artist + track input and track iD
-var artist = "adele";
-var track = "hello";
+var artist = "";
+var track = "";
 
 var trackId = "";
 
-//query IDs !site needs to be hosted before it will work
-var idQuery = "https://api.musixmatch.com/ws/1.1/matcher.track.get?format=jsonp&callback=callback&q_artist=" + artist + "&q_track=" + track + "&apikey=bacbbf26f7275c4f5760229e42740c9e";
-
-
 //function for AJAX request to find track id
 function getTrackId() {
+    
+    artist = $("#artist").val().trim();
+    track = $("#track").val().trim();
+    
+    //query IDs
+    var idQuery = "https://api.musixmatch.com/ws/1.1/matcher.track.get?format=jsonp&callback=callback&q_artist=" + artist + "&q_track=" + track + "&apikey=bacbbf26f7275c4f5760229e42740c9e";
+
+    console.log(idQuery);
+
     $.ajax({
         crossDomain: true,
         url: idQuery,
@@ -68,3 +70,17 @@ function getLyrics() {
 
 getTrackId();
 
+$("#submit").on("click", function(event) {
+
+    event.preventDefault();
+
+    $("#trackName").html("");
+
+    var userInput = $("#track").val();
+
+    localStorage.clear();
+
+    localStorage.setItem("track", userInput);
+
+    $("#trackName").text(localStorage.getItem("track"));
+});
