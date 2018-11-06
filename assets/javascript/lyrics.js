@@ -1,16 +1,20 @@
 //Create variables to store artist + track input and track iD
-var artist = "bruno mars";
-var track = "finesse";
+var artist = "";
+var track = "";
 
 var trackId = "";
 
-//query IDs !site needs to be hosted before it will work
-var idQuery = "https://api.musixmatch.com/ws/1.1/matcher.track.get?format=jsonp&callback=callback&q_artist=" + artist + "&q_track=" + track + "&apikey=bacbbf26f7275c4f5760229e42740c9e";
-
-
 //function for AJAX request to find track id
-
 function getTrackId() {
+    
+    artist = $("#artist").val().trim();
+    track = $("#track").val().trim();
+    
+    //query IDs
+    var idQuery = "https://api.musixmatch.com/ws/1.1/matcher.track.get?format=jsonp&callback=callback&q_artist=" + artist + "&q_track=" + track + "&apikey=bacbbf26f7275c4f5760229e42740c9e";
+
+    console.log(idQuery);
+
     $.ajax({
         crossDomain: true,
         url: idQuery,
@@ -21,7 +25,7 @@ function getTrackId() {
         //grab track id number and store in trackID
         trackId = response.message.body.track.track_id;
 
-        console.log(trackId);
+        //console.log(trackId);
 
         getLyrics();
 
@@ -41,26 +45,42 @@ function getLyrics() {
         dataType: "jsonp"
     }).then(function (response) {
         
-        console.log(lyricQuery);
+        //console.log(lyricQuery);
+        //console.log(response);
 
-        console.log(response);
-
-        //grab lyrics body and store in a div
-        var lyrics = response.message.body.lyrics.lyrics_body;
+        //grab lyrics body, convert \n to breaks and store in a div
         var copyright = response.message.body.lyrics.lyrics_copyright;
-        console.log(lyrics);
-        console.log(copyright);
-        
-        var lyricsDiv = $("<div>");
-        lyricsDiv.text(JSON.stringify(lyrics));
 
-        //grab copywright data and store in a div
+        var lyrics = JSON.stringify(response.message.body.lyrics.lyrics_body);
+        lyrics = lyrics.replace(new RegExp("\\\\n", "g"), "<br />");
+        
+        //console.log(lyrics);
+        //console.log(copyright);
+
+        var lyricsDiv = $("<div>");
+        lyricsDiv.html(lyrics);
+        lyricsDiv.append("<br />");
+        lyricsDiv.append(copyright);
 
         //append to body
-    
+        $("#lyrics").append(lyricsDiv);
 
     });
 };
 
 getTrackId();
 
+$("#submit").on("click", function(event) {
+
+    event.preventDefault();
+
+    $("#trackName").html("");
+
+    var userInput = $("#track").val();
+
+    localStorage.clear();
+
+    localStorage.setItem("track", userInput);
+
+    $("#trackName").text(localStorage.getItem("track"));
+});
