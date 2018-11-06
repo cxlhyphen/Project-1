@@ -56,7 +56,7 @@ function getLyrics() {
         var lyrics = JSON.stringify(response.message.body.lyrics.lyrics_body);
         lyrics = lyrics.replace(new RegExp("\\\\n", "g"), "<br />");
         
-        //console.log(lyrics);
+        console.log(lyrics);
         //console.log(copyright);
 
         var lyricsDiv = $("<div>");
