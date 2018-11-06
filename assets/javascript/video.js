@@ -54,6 +54,8 @@
 
         callYoutubeSearchApi(type);
 
+        getTrackId();
+
       });
     }
 
