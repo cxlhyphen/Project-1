@@ -70,3 +70,17 @@ function getLyrics() {
 
 getTrackId();
 
+$("#submit").on("click", function(event) {
+
+    event.preventDefault();
+
+    $("#trackName").html("");
+
+    var userInput = $("#track").val();
+
+    localStorage.clear();
+
+    localStorage.setItem("track", userInput);
+
+    $("#trackName").text(localStorage.getItem("track"));
+});
