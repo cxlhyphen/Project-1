@@ -74,6 +74,8 @@ $(document).on("click", "#submit", function (e) {
   var term = artist + " " + track;
   callYoutubeSearchApi(term);
 
+  getTrackId();
+
 });
 
 
