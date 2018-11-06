@@ -19,9 +19,19 @@
         crossorigin="anonymous"></script>
 </head>
 <style>
+    #bg {height:auto;
+    background-repeat: no-repeat;
+    background-size: 100%;};
+
 
 </style>
-<body>
+<script>
+
+
+</script>
+
+<body background="assets/images/the_killers_wallpaper_by_dnnicolas-d6he8ix.jpg"
+    id="bg">
 
 
 
@@ -36,24 +46,31 @@
 
 
     <div class="container position-relative">
+
         <div class="row">
             <div class="col-12 col-md-12">
                 <div>
-                <img src="assets/images/killersimage.jpg" class="img-fluid parentDiv" alt="Responsive image">
-                    <div class="container text-white p-3 m-l-3 childDiv position-absolute top float-left sticky-top">
+                    <img src="assets/images/killersimage.jpg" class="img-fluid parentDiv rounded" alt="Responsive image">
+                    <div class="container text-white p-3 m-l-3 childDiv position-absolute top sticky-top text-wrap">
                         <h1 class="display-4">Lyrdeo</h1>
                         <p class="lead">Search lyrics and music videos.</p>
                     </div>
                 </div>
             </div>
+
             <div class="col-12 col-md-12">
-                <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" allowfullscreen id="player"></iframe>>
+                    </div>
+                    <!-- <div class="jumbotron jumbotron-fluid">
                     <div class="container">
                         <div id="player"></div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
+
         <div class="container-fluid rounded">
             <div class="row">
                 <div class="col-12 col-md-12">
@@ -82,6 +99,7 @@
         <span id="trackName"></span>
         <br>
         <div class="container-fluid border border-warning rounded p-3 w-auto h-auto">
+
             <div class="row">
                 <div class="col-12 col-md-12" id="lyrics">
                     <strong>Lyrics:</strong>
@@ -89,6 +107,7 @@
             </div>
         </div>
     </div>
+
 
 </body>
 
