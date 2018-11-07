@@ -19,9 +19,18 @@
         crossorigin="anonymous"></script>
 </head>
 <style>
-    #bg {height:auto;
+    #bg {
+    background-image: url("assets/images/the_killers_wallpaper_by_dnnicolas-d6he8ix.jpg");
     background-repeat: no-repeat;
-    background-size: auto 100%;};
+    background-size: cover;
+    }
+
+    .header-bg {
+    background: #000000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #ffffff;
+    }
 
 </style>
 <script>
@@ -29,10 +38,7 @@
 
 </script>
 
-<body background="assets/images/the_killers_wallpaper_by_dnnicolas-d6he8ix.jpg"
-    id="bg">
-
-
+<body id="bg">
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -41,31 +47,22 @@
     <!--Video js-->
     <script src="assets/javascript/video.js"></script>
 
-
+    <div class="jumbotron jumbotron-fluid header-bg">
+        <div class="container text-center">
+            <h1 class="display-3">Lyrdeo</h1>
+            <p class="lead">Search lyrics and music videos.</p>
+        </div>
+    </div>
 
 
     <div class="container position-relative">
 
         <div class="row">
             <div class="col-12 col-md-12">
-                <div>
-                    <img src="assets/images/killersimage.jpg" class="img-fluid parentDiv rounded" alt="Responsive image">
-                    <div class="container text-white p-3 m-l-3 childDiv position-absolute top sticky-top text-wrap">
-                        <h1 class="display-4">Lyrdeo</h1>
-                        <p class="lead">Search lyrics and music videos.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-12">
                 <div class="container">
                     <div class="embed-responsive embed-responsive-16by9">
-                        <div class="embed-responsive-item" allowfullscreen id="player"></div>>
+                        <div class="embed-responsive-item" allowfullscreen id="player"></div>
                     </div>
-                    <!-- <div class="jumbotron jumbotron-fluid">
-                    <div class="container">
-                        <div id="player"></div>
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -80,9 +77,9 @@
                                     aria-label="Type" id="artist">
                             </div>
                             <div class="col-7">
-                                    <input class="form-control mr-sm-2" type="text" placeholder="Enter Track Title Here"
-                                        aria-label="Type" id="track">
-                                </div>
+                                <input class="form-control mr-sm-2" type="text" placeholder="Enter Track Title Here"
+                                    aria-label="Type" id="track">
+                            </div>
                             <div class="col-2">
                                 <button class="btn bg-warning text-white text-center font-weight-bold btn-lg btn-block"
                                     type="submit" id="submit">Search</button>
