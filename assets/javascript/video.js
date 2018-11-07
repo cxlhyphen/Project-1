@@ -1,6 +1,6 @@
 
-function callYoutubeSearchApi(type) {
-  type += "unofficial";
+function callYoutubeSearchApi(artist, track) {
+  var type = '"' + artist + '" ' + "+" + '"' + track + '"' ;
   var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + type + "&type=video&key=AIzaSyDtZJ5dO2lCwvyPRmwTKVeWNKMQRpI31qg";
   console.log("CALLLING")
   $.ajax({
@@ -8,26 +8,22 @@ function callYoutubeSearchApi(type) {
     method: "GET"
   }).then(function (response) {
     console.log(response)
-    var id = response.items[1].id.videoId;
+    var id = response.items[0].id.videoId;
     console.log("Video ID: " + id);
-    callYoutubeVideoApi(id);
+    var link = $("<a>");
+    var img = $("<img>");
+    img.attr("src", response.items[0].snippet.thumbnails.default.url);
+    link.attr("href", "https://www.youtube.com/watch?v=" + id);
+    link.attr("target", "_blank")
+    link.append(img);
+
+    $("#trackName").append(link);
     player.loadVideoById(id);
+    
+  
   });
 
 
-}
-
-//untested
-function callYoutubeVideoApi(id) {
-  console.log(id)
-  var queryURL2 = "https://www.googleapis.com/youtube/v3/video?part=snippet&id=" + id + "&key=AIzaSyDtZJ5dO2lCwvyPRmwTKVeWNKMQRpI31qg";
-  $.ajax({
-    url: queryURL2,
-    method: "GET"
-  }).then(function (response) {
-
-    console.log(response);
-  })
 }
 
 var tag = document.createElement('script');
@@ -44,9 +40,9 @@ function onYouTubeIframeAPIReady() {
   player = new YT.Player('player', {
     height: '390',
     width: '640',
-    videoId: 'M7lc1UVf-VE',
+    videoId: 'xnKhsTXoKCI',
     events: {
-      'onReady': onPlayerReady,
+      'onReady': "",
       'onStateChange': onPlayerStateChange
     }
   })
@@ -71,10 +67,10 @@ $(document).on("click", "#submit", function (e) {
   console.log("press");
   var artist = $("#artist").val().trim();
   var track = $("#track").val().trim();
-  var term = artist + " " + track;
-  callYoutubeSearchApi(term);
-
-  getTrackId();
+  
+  callYoutubeSearchApi(artist, track);
+ 
+  //getTrackId();
 
 });
 

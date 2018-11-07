@@ -70,10 +70,11 @@ function getLyrics() {
     });
 };
 
-$("#submit").on("click", function(event) {
+$(document).on("click", "#submit", function(event) {
 
     event.preventDefault();
 
+    getTrackId();
     $("#trackName").html("");
 
     var userInput = $("#track").val();
