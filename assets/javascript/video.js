@@ -14,6 +14,7 @@ function callYoutubeSearchApi(artist, track) {
     var img = $("<img>");
     img.attr("src", response.items[0].snippet.thumbnails.default.url);
     link.attr("href", "https://www.youtube.com/watch?v=" + id);
+    link.attr("target", "_blank")
     link.append(img);
 
     $("#trackName").append(link);
@@ -39,9 +40,9 @@ function onYouTubeIframeAPIReady() {
   player = new YT.Player('player', {
     height: '390',
     width: '640',
-    videoId: 'M7lc1UVf-VE',
+    videoId: 'xnKhsTXoKCI',
     events: {
-      'onReady': onPlayerReady,
+      'onReady': "",
       'onStateChange': onPlayerStateChange
     }
   })
