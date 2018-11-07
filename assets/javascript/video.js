@@ -1,6 +1,6 @@
 
-function callYoutubeSearchApi(type) {
-  type += "unofficial";
+function callYoutubeSearchApi(artist, track) {
+  var type = '"' + artist + '" ' + '"' + track + '"' ;
   var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + type + "&type=video&key=AIzaSyDtZJ5dO2lCwvyPRmwTKVeWNKMQRpI31qg";
   console.log("CALLLING")
   $.ajax({
@@ -8,26 +8,15 @@ function callYoutubeSearchApi(type) {
     method: "GET"
   }).then(function (response) {
     console.log(response)
-    var id = response.items[1].id.videoId;
+    var id = response.items[0].id.videoId;
     console.log("Video ID: " + id);
-    callYoutubeVideoApi(id);
+
     player.loadVideoById(id);
+    
+  
   });
 
 
-}
-
-//untested
-function callYoutubeVideoApi(id) {
-  console.log(id)
-  var queryURL2 = "https://www.googleapis.com/youtube/v3/video?part=snippet&id=" + id + "&key=AIzaSyDtZJ5dO2lCwvyPRmwTKVeWNKMQRpI31qg";
-  $.ajax({
-    url: queryURL2,
-    method: "GET"
-  }).then(function (response) {
-
-    console.log(response);
-  })
 }
 
 var tag = document.createElement('script');
@@ -71,10 +60,10 @@ $(document).on("click", "#submit", function (e) {
   console.log("press");
   var artist = $("#artist").val().trim();
   var track = $("#track").val().trim();
-  var term = artist + " " + track;
-  callYoutubeSearchApi(term);
-
-  getTrackId();
+  
+  callYoutubeSearchApi(artist, track);
+ 
+  //getTrackId();
 
 });
 
