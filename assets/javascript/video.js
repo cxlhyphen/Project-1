@@ -8,16 +8,26 @@ function callYoutubeSearchApi(artist, track) {
     method: "GET"
   }).then(function (response) {
     console.log(response)
-    var id = response.items[0].id.videoId;
+    var song = response.items[0];
+    var id = song.id.videoId;
     console.log("Video ID: " + id);
+    var data = $("<td>")
     var link = $("<a>");
-    var img = $("<img>");
-    img.attr("src", response.items[0].snippet.thumbnails.default.url);
     link.attr("href", "https://www.youtube.com/watch?v=" + id);
     link.attr("target", "_blank")
-    link.append(img);
+    link.addClass("col-4");
 
-    $("#trackName").append(link);
+  //  var title = $("<p>");
+    //title.addClass("col-2")
+   // link.text(song.snippet.title);
+    var img = $("<img>");
+    img.addClass("img-responsive");
+    img.attr("src", song.snippet.thumbnails.default.url);
+    //link.append(title);
+    
+    link.append(img);
+    data.append(link);
+    $("#trackName").append(data);
     player.loadVideoById(id);
     
   

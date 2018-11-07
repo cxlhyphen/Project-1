@@ -88,13 +88,13 @@ $(document).on("click", "#submit", function (event) {
     event.preventDefault();
 
     getTrackId();
-    $("#trackName").html("");
+    // $("#trackName").html("");
 
-    var userInput = $("#track").val();
+    // var userInput = $("#track").val();
 
-    localStorage.clear();
+    // localStorage.clear();
 
-    localStorage.setItem("track", userInput);
+    // localStorage.setItem("track", userInput);
 
-    $("#trackName").text(localStorage.getItem("track"));
+    // $("#trackName").text(localStorage.getItem("track"));
 });
