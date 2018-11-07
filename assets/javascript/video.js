@@ -1,6 +1,6 @@
 
 function callYoutubeSearchApi(artist, track) {
-  var type = '"' + artist + '" ' + '"' + track + '"' ;
+  var type = '"' + artist + '" ' + "+" + '"' + track + '"' ;
   var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + type + "&type=video&key=AIzaSyDtZJ5dO2lCwvyPRmwTKVeWNKMQRpI31qg";
   console.log("CALLLING")
   $.ajax({
@@ -10,7 +10,13 @@ function callYoutubeSearchApi(artist, track) {
     console.log(response)
     var id = response.items[0].id.videoId;
     console.log("Video ID: " + id);
+    var link = $("<a>");
+    var img = $("<img>");
+    img.attr("src", response.items[0].snippet.thumbnails.default.url);
+    link.attr("href", "https://www.youtube.com/watch?v=" + id);
+    link.append(img);
 
+    $("#trackName").append(link);
     player.loadVideoById(id);
     
   
