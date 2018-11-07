@@ -8,10 +8,10 @@ var trackId = "";
 function getTrackId() {
 
     $("#lyrics").empty();
-    
+
     artist = $("#artist").val().trim();
     track = $("#track").val().trim();
-    
+
     //query IDs
     var idQuery = "https://api.musixmatch.com/ws/1.1/matcher.track.get?format=jsonp&callback=callback&q_artist=" + artist + "&q_track=" + track + "&apikey=bacbbf26f7275c4f5760229e42740c9e";
 
@@ -24,12 +24,25 @@ function getTrackId() {
         dataType: "jsonp"
     }).then(function (response) {
 
-        //grab track id number and store in trackID
-        trackId = response.message.body.track.track_id;
+        var status = response.message.header.status_code
+        console.log(status);
 
-        //console.log(trackId);
+        //if status = 404, append a unavaliable message to the lyrics box
+        if (status == 404) {
+            var errorMsg = $('<div>');
+            errorMsg.html("<br>Sorry, lyrics are unavaliable. :(<br>");
 
-        getLyrics();
+            $("#lyrics").append(errorMsg);
+        }
+        //else, get lyrics
+        else {
+
+            //grab track id number and store in trackID
+            trackId = response.message.body.track.track_id;
+
+            //console.log(trackId);
+            getLyrics();
+        }
 
     });
 
@@ -46,7 +59,7 @@ function getLyrics() {
         method: "GET",
         dataType: "jsonp"
     }).then(function (response) {
-        
+
         //console.log(lyricQuery);
         //console.log(response);
 
@@ -55,7 +68,7 @@ function getLyrics() {
 
         var lyrics = JSON.stringify(response.message.body.lyrics.lyrics_body);
         lyrics = lyrics.replace(new RegExp("\\\\n", "g"), "<br />");
-        
+
         console.log(lyrics);
         //console.log(copyright);
 
@@ -70,7 +83,7 @@ function getLyrics() {
     });
 };
 
-$(document).on("click", "#submit", function(event) {
+$(document).on("click", "#submit", function (event) {
 
     event.preventDefault();
 
