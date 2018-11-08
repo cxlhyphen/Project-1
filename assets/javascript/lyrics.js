@@ -30,7 +30,7 @@ function getTrackId() {
         //if status = 404, append a unavaliable message to the lyrics box
         if (status == 404) {
             var errorMsg = $('<div>');
-            errorMsg.html("<br>Sorry, lyrics are unavaliable. :(<br>");
+            errorMsg.html("Sorry, lyrics are unavaliable. :(<br>");
 
             $("#lyrics").append(errorMsg);
         }
