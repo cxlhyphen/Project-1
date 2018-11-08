@@ -27,11 +27,13 @@
     background-size: cover;
     }
 
-    .header-bg {
-    background: #000000;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    color: #ffffff;
+    .header {
+        background: rgba(0, 0, 0, 0.8);
+    }
+
+    .blur {
+        background: rgba(0, 0, 0, 0.8);
+        margin: -32px auto 0px auto;
     }
 
 </style>
@@ -42,22 +44,23 @@
 
 <body id="bg">
 
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!--Lyrics js-->
     <script src="assets/javascript/lyrics.js"></script>
     <!--Video js-->
     <script src="assets/javascript/video.js"></script>
 
-    <div class="jumbotron jumbotron-fluid header-bg">
-        <div class="container text-center">
-            <h1 class="display-3"><i class="fa fa-play-circle"></i> Lyrdeo</h1>
+    <div class="container">
+            <div class="row">
+    <div class="jumbotron jumbotron-fluid w-100 header">
+        <div class="container text-center text-white">
+            <h1 class="display-2"><i class="fa fa-play-circle"></i> Lyrdeo</h1>
             <p class="lead">Search lyrics and music videos.</p>
         </div>
-    </div>
+    </div></div>
+</div>
 
-
-    <div class="container position-relative">
+    <div class="container position-relative p-4 blur">
 
         <div class="row">
             <div class="col-12 col-md-12">
