@@ -27,7 +27,7 @@ function callYoutubeSearchApi(artist, track) {
     
     link.append(img);
     data.append(link);
-    $("#trackName").append(data);
+    $("#trackName").prepend(data);
     player.loadVideoById(id);
     
   
