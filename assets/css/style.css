@@ -1,0 +1,14 @@
+#bg {
+    background-image: url("../images/the_killers_wallpaper_by_dnnicolas-d6he8ix.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.blur {
+    background: rgba(0, 0, 0, 0.8);
+    margin: -32px auto 0px auto;
+}

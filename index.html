@@ -7,9 +7,9 @@
     <title>LyrDeo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Stylesheets -->
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
@@ -17,30 +17,12 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
-        <!-- font awesome -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
+
 </head>
-<style>
-    #bg {
-    background-image: url("assets/images/the_killers_wallpaper_by_dnnicolas-d6he8ix.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    }
-
-    .header {
-        background: rgba(0, 0, 0, 0.8);
-    }
-
-    .blur {
-        background: rgba(0, 0, 0, 0.8);
-        margin: -32px auto 0px auto;
-    }
-
-</style>
-<script>
-
-
-</script>
 
 <body id="bg">
 
@@ -51,14 +33,15 @@
     <script src="assets/javascript/video.js"></script>
 
     <div class="container">
-            <div class="row">
-    <div class="jumbotron jumbotron-fluid w-100 header">
-        <div class="container text-center text-white">
-            <h1 class="display-2"><i class="fa fa-play-circle"></i> Lyrdeo</h1>
-            <p class="lead">Search lyrics and music videos.</p>
+        <div class="row">
+            <div class="jumbotron jumbotron-fluid w-100 header">
+                <div class="container text-center text-white">
+                    <h1 class="display-2"><i class="fa fa-play-circle"></i> Lyrdeo</h1>
+                    <p class="lead">Search lyrics and music videos.</p>
+                </div>
+            </div>
         </div>
-    </div></div>
-</div>
+    </div>
 
     <div class="container position-relative p-4 blur">
 
@@ -78,12 +61,12 @@
                     <form>
                         <div class="form-row align-items-center">
                             <div class="col-12 col-sm-3">
-                                <input class="form-control mr-sm-2" type="text" placeholder="Artist"
-                                    aria-label="Type" id="artist">
+                                <input class="form-control mr-sm-2" type="text" placeholder="Artist" aria-label="Type"
+                                    id="artist">
                             </div>
                             <div class="col-12 col-sm-7">
-                                <input class="form-control mr-sm-2" type="text" placeholder="Track Title"
-                                    aria-label="Type" id="track">
+                                <input class="form-control mr-sm-2" type="text" placeholder="Track Title" aria-label="Type"
+                                    id="track">
                             </div>
                             <div class="col-12 col-sm-2">
                                 <button class="btn bg-warning text-white text-center font-weight-bold btn-lg btn-block"
@@ -97,41 +80,41 @@
         <br>
 
         <!--Print track name-->
-        <div class="container-fluid border border-warning border-bottom-0 p-3 w-auto h-auto bg-secondary">
-        <div class="row">
+        <div class="container-fluid border border-warning p-3 w-auto h-auto bg-secondary">
+            <div class="row">
 
                 <div class="col-12">
-                <div class="text-white"><strong>Links:</strong></div>
-                <table class="text-white row table-responsive" id="trackName"></table>
+                    <div class="text-white h6">Links:</div>
+                    <table class="text-white row table-responsive" id="trackName"></table>
+                </div>
             </div>
-        </div>
         </div>
         <br>
 
         <div class="container-fluid border border-warning p-3 w-auto h-auto bg-dark">
-            
+
             <div class="row">
                 <div class="col-12 col-md-12">
-                    <div class="text-white"><strong>Lyrics:</strong></div>
+                    <div class="text-white h6">Lyrics:</div>
                     <div class="text-white" id="lyrics"></div>
                 </div>
             </div>
         </div>
-    
 
-    <!--Button linking to future project-->
-    <br>
-    <div class="container-fluid border border-right-0 border-bottom-0 border-left-0 border-warning rounded p-3 w-auto h-auto ">
-        <div class="row">
-        <div class="col-12 text-center" >
-            <div class="text-white"><strong>Future DEV:</strong></div>
-          
-          <a class="btn btn-transparent center text-danger" href="future.html" role="button"><i class="fab fa-app-store-ios fa-3x"></i></a>
+
+        <!--Button linking to future project-->
+        <br>
+        <div class="container-fluid border border-right-0 border-bottom-0 border-left-0 border-warning p-3 w-auto h-auto ">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="text-white h6">Future DEV:</div>
+
+                    <a class="btn btn-transparent center text-danger" href="future.html" role="button"><i class="fab fa-app-store-ios fa-3x"></i></a>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-    </div>
-    
+
 
 </body>
 
