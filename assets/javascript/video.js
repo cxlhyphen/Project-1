@@ -30,7 +30,7 @@ function setLinks() {
   var string = localStorage.getItem("videoLinks");
 
   links = string.split(" ");
-  console.log(links);
+
   displayHistory();
 }
 
@@ -40,11 +40,10 @@ function addStorage() {
 
   setLinks();
 
-  console.log(localStorage.getItem("videoLinks"))
 }
 
 if (storageAvailable('localStorage')) {
-  console.log(!localStorage.getItem("videoLinks"));
+
   // Yippee! We can use localStorage awesomeness
   if (!localStorage.getItem("videoLinks")) {
     addStorage();
@@ -58,23 +57,21 @@ else {
 }
 
 function displayHistory() { 
-  console.log("DISPLAYING")
-
+ 
+//clears div html
   $("#trackName").html("");
-  console.log(links)
+  //cycle through array of ids
   for (let i in links) {
-
+    //if valid
     if (links[i].length > 5 && links[i].length < 20) {
+      //create a table data element that links to youtube and uses a thumbnail
+      var data = $("<td>");
 
-      var data = $("<td>")
       var link = $("<a>");
       link.attr("href", "https://www.youtube.com/watch?v=" + links[i]);
       link.attr("target", "_blank")
       link.addClass("col-4");
 
-      //  var title = $("<p>");
-      //title.addClass("col-2")
-      // link.text(song.snippet.title);
       var img = $("<img>");
       img.addClass("img-responsive");
       img.attr("src", "https://i.ytimg.com/vi/" + links[i] + "/default.jpg");
@@ -91,15 +88,14 @@ function displayHistory() {
 function callYoutubeSearchApi(artist, track) {
   var type = '"' + artist + '" ' + "+" + '"' + track + '"';
   var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + type + "&type=video&key=AIzaSyDtZJ5dO2lCwvyPRmwTKVeWNKMQRpI31qg";
-  console.log("CALLLING")
+
   $.ajax({
     url: queryURL,
     method: "GET"
   }).then(function (response) {
-    console.log(response)
+    
     var song = response.items[0];
     var id = song.id.videoId;
-    console.log("Video ID: " + id);
     links.push(id);
     addStorage();
     displayHistory();
@@ -147,13 +143,13 @@ function stopVideo() {
 
 $(document).on("click", "#submit", function (e) {
   e.preventDefault();
-  console.log("press");
+  
   var artist = $("#artist").val().trim();
   var track = $("#track").val().trim();
 
   callYoutubeSearchApi(artist, track);
 
-  //getTrackId();
+  
 
 });
 
