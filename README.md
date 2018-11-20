@@ -30,5 +30,5 @@ User can enter an artist and song title which will play a music video as well as
 4. Instead of the thumbnail linking to the YouTube video, play it again within the site.
 
 ## Preview
-![Preview](assets/images/killersimage.jpg)
+![Preview](assets/images/preview.jpg)
 
